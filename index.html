@@ -83,14 +83,20 @@
   </div>
 </section>
 
+<!-- Teaser Figure -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/detail_pipeline.png" alt="A.I.R. Framework Overview">
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">A.I.R.</span> addresses the critical trade-off between lightweight models' poor performance on complex queries 
-        and VLM-based methods' prohibitive computational costs through adaptive, iterative frame selection.
-      </h2>
+      <figure>
+        <img src="./static/images/figure1_challenges.png" alt="Challenges in Query-Related Frame Selection">
+        <figcaption class="has-text-centered">
+          <p class="subtitle">
+            <strong>Figure 1:</strong> Key challenges in query-related frame selection. (a) Pipeline overview with two approaches: 
+            lightweight models (CLIP) vs. VLM analysis. (b) Lightweight models fail on complex queries with ambiguous similarity. 
+            (c) VLM analysis leads to computation cost explosion.
+          </p>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -123,90 +129,165 @@
     </div>
     <!--/ Abstract. -->
 
-    <!-- Method Overview. -->
+    <!-- Method Overview Figure 2 -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method Overview</h2>
+        <figure class="image">
+          <img src="./static/images/figure2_pipeline.png" alt="A.I.R. Pipeline">
+          <figcaption class="has-text-centered">
+            <p class="subtitle">
+              <strong>Figure 2:</strong> General pipeline of A.I.R. with two stages: (1) Adaptive Initial Sampling that identifies
+              potential 'events' based on query similarity and dynamically samples frames around them using an
+              adaptive budget; and (2) Iterative Frame Selection that progressively refine the frame selection via
+              four steps. The selected frames are then fed into Answering VLM.
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <!--/ Method Overview Figure 2 -->
+
+    <!-- Detailed Method Figure 3 -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method Details</h2>
+        <figure class="image">
+          <img src="./static/images/figure3_details.png" alt="A.I.R. Detailed Stages">
+          <figcaption class="has-text-centered">
+            <p class="subtitle">
+              <strong>Figure 3:</strong> Two main stages in our A.I.R. (a) <strong>Adaptive Initial Sampling:</strong> A GMM-based adaptive
+              threshold is applied to the query-frame similarity to identify potential events, and then event-wise
+              sampling is conducted on the refined events to obtain K frames. (b) <strong>Iterative Frame Selection:</strong> 
+              In each iteration, 1) Promising candidates are selected via Interval Potential Ranking; 2)
+              A VLM performs reasoning-based analysis to validate the best frames; 3) An Early-Stop mechanism
+              checks if the frame budget is met; And 4) if not met, the Localized Density Sampling discovers more
+              frames around the validated frames and feed them into the next iteration.
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <!--/ Detailed Method Figure 3 -->
+
+    <!-- Key Contributions -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Method Overview</h2>
+        <h2 class="title is-3">Key Contributions</h2>
         <div class="content has-text-justified">
-          <p>
-            A.I.R. operates in two main stages:
-          </p>
-          <ol>
-            <li><strong>Adaptive Initial Sampling:</strong> Identifies query-relevant events based on the unique distribution of query-frame similarity scores in each video, 
-            sampling frames proportionally to event duration.</li>
-            <li><strong>Iterative Frame Selection:</strong> Executes an efficient iterative loop that adaptively allocates VLM computation through four steps:
-              <ul>
-                <li>Interval Potential Ranking</li>
-                <li>Reasoning-based VLM Analysis</li>
-                <li>Early Stop Mechanism</li>
-                <li>Localized Density Sampling</li>
-              </ul>
-            </li>
-          </ol>
+          <ul>
+            <li><strong>Adaptive Initial Sampling:</strong> We introduce a method that moves beyond uniform sampling by dynamically
+            identifying and sampling candidate frames around potential events based on query-frame similarity
+            and controls the output frames via an adaptive budget, robustly handling videos of varied length.</li>
+            
+            <li><strong>Iterative Frame Selection:</strong> We propose a novel algorithm that makes deep VLM analysis computationally 
+            tractable, distinguishing itself from prior methods that rely on a computationally expensive, single-pass analysis over large, fixed frame sets.</li>
+            
+            <li><strong>Extensive Experiments:</strong> We demonstrate that our method can be plug-and-play with diverse foundation VLMs while
+            achieving substantially higher efficiency and accuracy than existing VLM analysis-based methods.</li>
+          </ul>
         </div>
       </div>
     </div>
-    <!--/ Method Overview. -->
+    <!--/ Key Contributions -->
 
     <!-- Results -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-full-width">
         <h2 class="title is-3">Experimental Results</h2>
         <div class="content has-text-justified">
           <p>
-            Our method demonstrates significant improvements across multiple VideoQA benchmarks:
+            Our method demonstrates significant improvements across multiple VideoQA benchmarks with various foundation VLMs:
           </p>
         </div>
         
-        <!-- Add results table or figures here -->
-        <table class="table is-bordered is-striped is-narrow is-hoverable">
+        <!-- Results table -->
+        <table class="table is-bordered is-striped is-narrow is-hoverable" style="margin: auto;">
           <thead>
             <tr>
               <th>Model</th>
-              <th>Video-MME (w/o sub)</th>
-              <th>MLVU</th>
-              <th>LVB</th>
+              <th>#Frames</th>
+              <th>Video-MME<br>(w/o sub)</th>
+              <th>MLVU<sub>dev</sub></th>
+              <th>LVB<sub>val</sub></th>
               <th>EgoSchema</th>
               <th>NextQA</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>QwenVL-2.5 (baseline)</td>
+              <td>QwenVL-2.5</td>
+              <td>32</td>
               <td>60.8</td>
               <td>59.3</td>
               <td>58.1</td>
               <td>57.6</td>
               <td>74.3</td>
             </tr>
-            <tr>
-              <td><strong>QwenVL-2.5 + A.I.R.</strong></td>
+            <tr style="background-color: #e8f5e9;">
+              <td><strong>+A.I.R. (Ours)</strong></td>
+              <td>≤32</td>
               <td><strong>65.0</strong></td>
               <td><strong>67.5</strong></td>
               <td><strong>61.4</strong></td>
               <td><strong>58.8</strong></td>
               <td><strong>81.3</strong></td>
             </tr>
+            <tr>
+              <td>InternVL-3</td>
+              <td>32</td>
+              <td>65.6</td>
+              <td>68.4</td>
+              <td>58.3</td>
+              <td>62.5</td>
+              <td>82.3</td>
+            </tr>
+            <tr style="background-color: #e8f5e9;">
+              <td><strong>+A.I.R. (Ours)</strong></td>
+              <td>≤32</td>
+              <td><strong>68.2</strong></td>
+              <td><strong>74.5</strong></td>
+              <td><strong>62.8</strong></td>
+              <td><strong>63.3</strong></td>
+              <td><strong>82.6</strong></td>
+            </tr>
+            <tr>
+              <td>LLaVA-OneVision</td>
+              <td>32</td>
+              <td>58.5</td>
+              <td>62.4</td>
+              <td>56.6</td>
+              <td>60.2</td>
+              <td>79.3</td>
+            </tr>
+            <tr style="background-color: #e8f5e9;">
+              <td><strong>+A.I.R. (Ours)</strong></td>
+              <td>≤32</td>
+              <td><strong>61.4</strong></td>
+              <td><strong>69.3</strong></td>
+              <td><strong>60.7</strong></td>
+              <td><strong>61.4</strong></td>
+              <td><strong>81.6</strong></td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
     <!--/ Results -->
-  </div>
-</section>
 
-<section class="section">
-  <div class="container is-max-desktop">
     <!-- Efficiency Analysis -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Efficiency Analysis</h2>
         <div class="content has-text-justified">
           <p>
-            A.I.R. achieves superior computational efficiency by adaptively processing frames based on query complexity. 
-            While conventional VLM-based methods analyze a fixed 128 frames (taking ~162 seconds), A.I.R. analyzes 
-            only 36.5 frames on average (42.31 seconds), achieving better accuracy with 74% fewer frame analyses.
+            A.I.R. achieves superior computational efficiency through its adaptive processing strategy:
           </p>
+          <ul>
+            <li>Conventional VLM-based methods: Analyze fixed 128 frames → <strong>162.03s</strong></li>
+            <li><strong>A.I.R. (Ours):</strong> Analyzes average 36.5 frames → <strong>42.31s</strong> (74% reduction)</li>
+            <li>Better accuracy with significantly fewer frame analyses</li>
+          </ul>
         </div>
       </div>
     </div>
