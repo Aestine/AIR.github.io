@@ -219,7 +219,9 @@
     </div>
     <!--/ Key Contributions -->
 
-    <!-- Results -->
+    <!-- Results Section -->
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Experimental Results</h2>
@@ -301,10 +303,14 @@
         </table>
       </div>
     </div>
-    <!--/ Results -->
+  </div>
+</section>
+<!--/ Results Section -->
 
-    <!-- Efficiency Analysis -->
-    <div class="columns is-centered">
+<!-- Efficiency Analysis Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Efficiency Analysis</h2>
         <div class="content has-text-justified">
@@ -319,29 +325,72 @@
         </div>
       </div>
     </div>
-    <!--/ Efficiency Analysis -->
+  </div>
+</section>
+<!--/ Efficiency Analysis Section -->
 
-    <!-- Visualization Demo -->
-    <div class="columns is-centered">
+<!-- Visualization Demo Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Frame Selection Process Visualization</h2>
-        <div class="content has-text-centered">
+        <div class="content">
           <figure class="image">
             <img src="./static/images/gif.gif" alt="A.I.R. Frame Selection Process">
-            <figcaption class="has-text-centered">
-              <p class="subtitle">
-                <strong>Demonstration:</strong> The iterative frame selection process of A.I.R. showing how our method progressively 
-                identifies and selects the most relevant frames through adaptive sampling and reasoning-based analysis.
-              </p>
-            </figcaption>
+            
           </figure>
         </div>
       </div>
     </div>
-    <!--/ Visualization Demo -->
   </div>
 </section>
-
+<!--/ Visualization Demo Section -->
+<!-- Qualitative Comparison Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Qualitative Comparison</h2>
+        <div class="content">
+          <p class="has-text-justified">
+            Visual comparison of frame selection results between Uniform Sampling, CLIP (Top-K), and our A.I.R. method on two example questions from different videos. 
+            Our method successfully identifies and selects the most relevant frames for answering complex queries.
+          </p>
+        </div>
+        
+        <!-- Two images side by side -->
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <figure class="image">
+              <img src="./static/images/q1.png" alt="Comparison Example 1">
+              <figcaption class="has-text-centered">
+                <p><strong>Example 1:</strong> Daily activities question</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure class="image">
+              <img src="./static/images/q2.png" alt="Comparison Example 2">
+              <figcaption class="has-text-centered">
+                <p><strong>Example 2:</strong> Nahuku formation question</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        
+        <div class="content has-text-justified">
+          <p>
+            As shown above, A.I.R. demonstrates superior frame selection by focusing on semantically relevant frames. 
+            While Uniform Sampling includes many redundant frames and CLIP (Top-K) often selects visually similar but contextually irrelevant frames, 
+            our method precisely identifies the key moments needed to answer the questions correctly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Qualitative Comparison Section -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
