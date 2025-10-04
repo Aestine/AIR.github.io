@@ -198,7 +198,9 @@
     </div>
     <!--/ Detailed Method Figure 3 -->
 
-    <!-- Key Contributions -->
+    <!-- Key Contributions and Efficiency -->
+
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Key Contributions</h2>
@@ -213,11 +215,21 @@
             
             <li><strong>Extensive Experiments:</strong> We demonstrate that our method can be plug-and-play with diverse foundation VLMs while
             achieving substantially higher efficiency and accuracy than existing VLM analysis-based methods.</li>
+            
+            <li><strong>Superior Efficiency:</strong> A.I.R. achieves remarkable computational savings through its adaptive processing strategy:
+              <ul style="margin-top: 0.5em;">
+                <li>Conventional VLM-based methods: Analyze fixed 128 frames → <strong>162.03s</strong></li>
+                <li>A.I.R. (Ours): Analyzes average 36.5 frames → <strong>42.31s</strong> (74% reduction)</li>
+                <li>Better accuracy with significantly fewer frame analyses</li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
     </div>
-    <!--/ Key Contributions -->
+  </div>
+</section>
+<!--/ Key Contributions and Efficiency -->
 
     <!-- Results Section -->
 <section class="section">
@@ -306,28 +318,6 @@
   </div>
 </section>
 <!--/ Results Section -->
-
-<!-- Efficiency Analysis Section -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Efficiency Analysis</h2>
-        <div class="content has-text-justified">
-          <p>
-            A.I.R. achieves superior computational efficiency through its adaptive processing strategy:
-          </p>
-          <ul>
-            <li>Conventional VLM-based methods: Analyze fixed 128 frames → <strong>162.03s</strong></li>
-            <li><strong>A.I.R. (Ours):</strong> Analyzes average 36.5 frames → <strong>42.31s</strong> (74% reduction)</li>
-            <li>Better accuracy with significantly fewer frame analyses</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--/ Efficiency Analysis Section -->
 
 <!-- Visualization Demo Section -->
 <section class="section">
