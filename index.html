@@ -240,9 +240,16 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Experimental Results</h2>
+        
+        <!-- Performance Results -->
         <div class="content has-text-justified">
+          <h3 class="title is-4">Performance Comparison</h3>
           <p>
-            Our method demonstrates significant improvements across multiple VideoQA benchmarks with various foundation VLMs:
+            We evaluate A.I.R. across five challenging VideoQA benchmarks with three state-of-the-art foundation VLMs. 
+            Our method demonstrates consistent improvements across all model-benchmark combinations, validating its 
+            effectiveness as a plug-and-play solution. The performance gains are particularly pronounced on benchmarks 
+            requiring complex temporal reasoning (MLVU, NextQA), where our semantic-aware frame selection significantly 
+            outperforms uniform sampling baselines.
           </p>
         </div>
         
@@ -320,7 +327,20 @@
           </tbody>
         </table>
 
-        <br>
+        <br><br>
+        
+        <!-- Efficiency Analysis -->
+        <div class="content has-text-justified">
+          <h3 class="title is-4">Efficiency Analysis</h3>
+          <p>
+            Beyond accuracy improvements, A.I.R. achieves remarkable computational efficiency through its iterative 
+            refinement strategy. The table below breaks down the time costs for different components and compares 
+            VLM analysis time between conventional direct analysis and our method. Our Early-Stop mechanism ensures 
+            that we analyze only the necessary frames, reducing the actual analyzed frames from the theoretical maximum 
+            to achieve <strong>50-74%</strong> time savings while maintaining superior accuracy.
+          </p>
+        </div>
+        
         <!-- Efficiency Table -->
         <table class="table is-bordered is-striped is-narrow is-hoverable" style="margin: auto;">
           <caption style="caption-side: top; padding-bottom: 0.5em;">
@@ -396,8 +416,9 @@
           </tbody>
         </table>
         
-        <p style="margin-top: 1em;">
-          A.I.R. consistently achieves 50-74% reduction in analysis time across different settings.
+        <p style="margin-top: 1em;" class="has-text-centered">
+          <em>A.I.R. consistently achieves <strong>50-74%</strong> reduction in analysis time across different settings 
+          while improving accuracy.</em>
         </p>
       </div>
     </div>
