@@ -158,6 +158,32 @@
     <!--/ Abstract. -->
   </div>
 </section>
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Key Contributions -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Contributions</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li><strong>Adaptive Initial Sampling:</strong> We introduce a method that moves beyond uniform sampling by dynamically
+            identifying and sampling candidate frames around potential events based on query-frame similarity
+            and controls the output frames via an adaptive budget, robustly handling videos of varied length.</li>
+            
+            <li><strong>Iterative Frame Selection:</strong> We propose a novel algorithm that makes deep VLM analysis computationally 
+            tractable, distinguishing itself from prior methods that rely on a computationally expensive, single-pass analysis over large, fixed frame sets.</li>
+            
+            <li><strong>Extensive Experiments:</strong> Our plug-and-play method consistently improves diverse foundation VLMs, 
+            achieving <strong>4.0-6.9%</strong> improvement on Video-MME (up to <strong>+4.2</strong> points), <strong>8.9-13.8%</strong> on MLVU (up to <strong>+8.2</strong> points), 
+            and <strong>0.4-9.4%</strong> on NextQA (up to <strong>+7.0</strong> points), while reducing VLM analysis time by <strong>74%</strong> compared to conventional methods.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Key Contributions -->
+  </div>
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -207,32 +233,6 @@
     <!--/ Detailed Method Figure 3 -->
   </div>
 </section>
-
-<!-- Key Contributions -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Key Contributions</h2>
-        <div class="content has-text-justified">
-          <ul>
-            <li><strong>Adaptive Initial Sampling:</strong> We introduce a method that moves beyond uniform sampling by dynamically
-            identifying and sampling candidate frames around potential events based on query-frame similarity
-            and controls the output frames via an adaptive budget, robustly handling videos of varied length.</li>
-            
-            <li><strong>Iterative Frame Selection:</strong> We propose a novel algorithm that makes deep VLM analysis computationally 
-            tractable, distinguishing itself from prior methods that rely on a computationally expensive, single-pass analysis over large, fixed frame sets.</li>
-            
-            <li><strong>Extensive Experiments:</strong> Our plug-and-play method consistently improves diverse foundation VLMs, 
-            achieving 4.0-6.9% improvement on Video-MME (up to +4.2 points), 8.9-13.8% on MLVU (up to +8.2 points), 
-            and 0.4-9.4% on NextQA (up to +7.0 points), while reducing VLM analysis time by 74% compared to conventional methods.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--/ Key Contributions -->
 
 <!-- Experimental Results Section -->
 <section class="section">
